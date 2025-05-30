@@ -1,0 +1,11 @@
+services:
+  rest-number:
+    image: "racit/rest-number:1.0.0-SNAPSHOT"
+    ports:
+      - "8701:8701"
+  rest-book:
+    image: "racit/rest-book:1.0.0-SNAPSHOT"
+    ports:
+      - "8702:8702"
+    environment:
+      - QUARKUS_REST_CLIENT_"NUMBER.PROXY"_URL=http://rest-number:8701
